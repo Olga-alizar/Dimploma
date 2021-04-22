@@ -10,6 +10,7 @@ public interface CategoriesRepository extends JpaRepository<Categories, Integer>
 
     @Query("select c from categories c")
     //public List<Categories> findAll();
+//non-static method getAllCategories() cannot be referenced from a static context ругается здесь    
     List<Categories> getAllCategories() ;
 
 }
