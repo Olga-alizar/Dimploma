@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-public class Categories {
+public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,8 +17,8 @@ public class Categories {
     private String description;
 
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy="categories")
-    List<Furniture> furniture;
+    @OneToMany(fetch = FetchType.EAGER, mappedBy="category")
+    List<Furniture> furnitures;
 
     public Integer getId() {
         return id;
@@ -44,13 +44,21 @@ public class Categories {
         this.description = description;
     }
 
+    public List<Furniture> getFurnitures() {
+        return furnitures;
+    }
+
+    public void setFurnitures(List<Furniture> furnitures) {
+        this.furnitures = furnitures;
+    }
+
     @Override
     public String toString() {
-        return "Categories{" +
+        return "Category{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
-                ", furniture=" + furniture +
+                ", furniture=" + furnitures +
                 '}';
     }
 }

@@ -24,8 +24,8 @@ public class Furniture {
     private Integer manufacturer_id;
 */
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="categories_id",  nullable=false)
-    Categories categories;
+    @JoinColumn(name="category_id",  nullable=false)
+    Category category;
 
     public Integer getId() {
         return id;
