@@ -1,2 +1,2 @@
-# Dimploma
+# Diploma
 Дипломный проект по Spring boot
