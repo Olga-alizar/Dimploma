@@ -6,7 +6,7 @@ public class CategoryDto {
     private Integer id;
     private String name;
     private String description;
-    private List<FurnitureDto> furnitures;
+    private List<FurnitureDto> furnituries;
 
     public Integer getId() {
         return id;
@@ -33,10 +33,20 @@ public class CategoryDto {
     }
 
     public List<FurnitureDto> getFurnitures() {
-        return furnitures;
+        return furnituries;
     }
 
-    public void setFurnitures(List<FurnitureDto> furnitures) {
-        this.furnitures = furnitures;
+    public void setFurnituries(List<FurnitureDto> furnituries) {
+        this.furnituries = furnituries;
+    }
+
+    @Override
+    public String toString() {
+        return "CategoryDto{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", furnituries=" + furnituries +
+                '}';
     }
 }

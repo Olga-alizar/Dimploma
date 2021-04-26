@@ -24,16 +24,27 @@ public class CatServiceImpl implements CatService {
 
     @Override
     @Transactional
-    public List<Category> getAllCategories() {
-        List<Category> categories = CategoryRepository.getAllCategory() {
+    public List<CategoryDto> getAllCategories() {
+        List<Category> categories = categoryRepository.getAllCategory();
         return convertFromListEntityToListDto(categories);
     }
-
+/*
     @Override
-    public List<Category> getAllCategoriesWithJoin() {
-        return CategoryRepository.getAllCategoryWithJoin();
+    public List<CategoryDto> getAllCategoriesWithFurnituries() {
+         List<Category category = categoryRepository.getAllCategoryWithFurnituries();
+         return convertFromEntityToDto(category);
+        }
+*/
+    @Override
+    public CategoryDto getCategoryByName(String name) {
+        return convertFromEntityToDto(categoryRepository.getCategoryByName(name));
     }
-
+/*
+    @Override
+    public List<CategoryDto> getAllCategoryWithFurnituries () {
+        return convertFromListEntityToLisDtotWithFurnituriesDto(categoryRepository.getAllCategoryWithFurnituries());
+    }
+ */
     private List<CategoryDto> convertFromListEntityToListDto(List<Category> categories){
 
         List<CategoryDto> categoryDtos = new ArrayList<>();
@@ -45,17 +56,53 @@ public class CatServiceImpl implements CatService {
     }
     private CategoryDto convertFromEntityToDto(Category category)   {
         CategoryDto categoryDto = new CategoryDto();
-        CategoryDto.setId(Category.getId());
-        CategoryDto.setName(Category.getName());
-        CategoryDto.setDescription(Category.getDescription());
+        categoryDto.setId(category.getId());
+        categoryDto.setName(category.getName());
+        categoryDto.setDescription(category.getDescription());
         List<FurnitureDto> FurnitureDtos = new ArrayList<>();
-        for(Furniture Furniture:  Category.getFurnitures()) {
+        for(Furniture furniture:  category.getFurnitures()) {
+            FurnitureDto FurnitureDto = new FurnitureDto();
+            FurnitureDto.setId(furniture.getId());
+            FurnitureDto.setName(furniture.getName());
+            FurnitureDto.setPrice(furniture.getPrice());
+            FurnitureDto.setDescription(furniture.getDescription());
+            FurnitureDtos.add(FurnitureDto);
+
+        }
+            categoryDto.setFurnituries(FurnitureDtos);
+       return categoryDto;
+    }
+    /*
+    private CategoryDto convertFromEntityToDto(Category category)   {
+        CategoryDto categoryDto = new CategoryDto();
+        categoryDto.setId(category.getId());
+        categoryDto.setName(category.getName());
+        categoryDto.setDescription(category.getDescription());
+        List<FurnitureDto> FurnitureDtos = new ArrayList<>();
+        for(Furniture Furniture:  category.getFurnitures()) {
             FurnitureDto FurnitureDto = new FurnitureDto();
             FurnitureDto.setId(Furniture.getId());
             FurnitureDto.setName(Furniture.getName());
             FurnitureDtos.add(FurnitureDto);
         }
-            categoryDto.setFurnitures(FurnitureDtos);
-       return categoryDto;
+        categoryDto.setFurnituries(FurnitureDtos);
+        return categoryDto;
+    }
+*/
+    /*
+    private List<CategoryDto> convertFromListEntityToListWithFurnituriesDtо(Category category) {
+       List<CategoryDto> categoryDtos = new ArrayList();
+       for  (Category category: categories)   {
+           categoryDtos.add(convertFromEntityToWithFurnituresDto(category));
+       }
+     return categoryDtos;
+    }
+    */
+    private CategoryDto convertFromEntityToWithFurnituresDto(Category category) {
+
+        CategoryDto categoryDto = new CategoryDto();
+        categoryDto.setId(category.getId());
+        categoryDto.setName(category.getName());
+        return null;
     }
 }

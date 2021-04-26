@@ -3,9 +3,9 @@ insert into category (name, description) values ('Спальни',  'Мебел�
 insert into category (name, description) values ('Прихожие', 'Мебель для прихожих');
 insert into category (name, description) values ('Кухни', 'Мебель для кухонь');
 
-insert into manufacturer (name) values ('Пинскдрев');
-insert into manufacturer (name) values ('Минскмебель');
-insert into manufacturer (name) values ('ЗОВ');
+insert into manufacturer (name, description) values ('Пинскдрев','Мебель разных категорий');
+insert into manufacturer (name, description) values ('Минскмебель','');
+insert into manufacturer (name, description) values ('ЗОВ','Крупный производитель кухонь');
 
 insert into furniture (category_id, manufacturer_id, name, price, description) values (1,1,'Стенка Коста', 915, 'Цвет:    венге/прованс');
 insert into furniture (category_id, manufacturer_id, name, price, description) values (1,1,'Стенка Марсель', 727, 'Цвет: венге/белый глянец');

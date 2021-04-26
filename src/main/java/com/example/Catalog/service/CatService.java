@@ -8,5 +8,6 @@ import java.util.List;
 public interface CatService {
 
     public List<CategoryDto> getAllCategories();
-    public List<CategoryDto> getAllCategoriesWithJoin();
+  //  public List<CategoryDto> getAllCategoryWithFurnituries();
+    public CategoryDto getCategoryByName(String name);
 }
