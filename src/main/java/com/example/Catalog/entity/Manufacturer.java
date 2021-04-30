@@ -3,8 +3,7 @@ package com.example.Catalog.entity;
 import javax.persistence.*;
 import java.util.List;
 
-@Entity
-public class Category {
+public class Manufacturer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,11 +14,10 @@ public class Category {
 
     @Column
     private String description;
-
-
-    @OneToMany(fetch = FetchType.EAGER, mappedBy="category")
+/*
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "manufacturer")
     List<Furniture> furnituries;
-
+*/
     public Integer getId() {
         return id;
     }
@@ -42,23 +40,5 @@ public class Category {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public List<Furniture> getFurnituries() {
-        return furnituries;
-    }
-
-    public void setFurnitures(List<Furniture> furnitures) {
-        this.furnituries = furnitures;
-    }
-
-    @Override
-    public String toString() {
-        return "Category{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", furniture=" + furnituries +
-                '}';
     }
 }

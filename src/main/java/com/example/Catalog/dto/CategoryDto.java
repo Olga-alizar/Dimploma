@@ -8,6 +8,14 @@ public class CategoryDto {
     private String description;
     private List<FurnitureDto> furnituries;
 
+    public CategoryDto() {
+    }
+
+    public CategoryDto(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
+
     public Integer getId() {
         return id;
     }

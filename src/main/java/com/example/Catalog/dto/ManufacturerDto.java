@@ -1,24 +1,12 @@
-package com.example.Catalog.entity;
+package com.example.Catalog.dto;
 
-import javax.persistence.*;
 import java.util.List;
 
-@Entity
-public class Category {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class ManufacturerDto {
     private Integer id;
-
-    @Column
     private String name;
-
-    @Column
     private String description;
-
-
-    @OneToMany(fetch = FetchType.EAGER, mappedBy="category")
-    List<Furniture> furnituries;
+    private List<FurnitureDto> furnituries;
 
     public Integer getId() {
         return id;
@@ -44,17 +32,17 @@ public class Category {
         this.description = description;
     }
 
-    public List<Furniture> getFurnituries() {
+    public List<FurnitureDto> getFurnituries() {
         return furnituries;
     }
 
-    public void setFurnitures(List<Furniture> furnitures) {
-        this.furnituries = furnitures;
+    public void setFurnituries(List<FurnitureDto> furnituries) {
+        this.furnituries = furnituries;
     }
 
     @Override
     public String toString() {
-        return "Category{" +
+        return "ManufacturerDto{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +

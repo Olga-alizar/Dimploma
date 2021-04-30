@@ -26,7 +26,11 @@ public class Furniture {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="category_id",  nullable=false)
     Category category;
-
+/*
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="manufacturer_id",  nullable=false)
+    Manufacturer manufacturer;
+*/
     public Integer getId() {
         return id;
     }
@@ -75,6 +79,7 @@ public class Furniture {
         this.manufacturer_id = manufacturer_id;
     }
 */
+
     @Override
     public String toString() {
         return "Furniture{" +
@@ -82,6 +87,6 @@ public class Furniture {
                 ", name='" + name + '\'' +
                 ", Price=" + Price +
                 ", description='" + description + '\'' +
-                '}';
+                  '}';
     }
 }
