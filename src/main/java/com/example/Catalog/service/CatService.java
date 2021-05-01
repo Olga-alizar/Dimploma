@@ -12,6 +12,6 @@ public interface CatService {
     public List<CategoryDto> getAllCategoryWithFurnituries();
     public CategoryDto getCategoryByName(String name);
     public void saveCategory(CategoryDto categoryDto);
- //   public CategoryDto getFurnituriesByCategory(Integer idFurniture);
+    public CategoryDto getFurnituriesByCategory(Integer id);
 
 }

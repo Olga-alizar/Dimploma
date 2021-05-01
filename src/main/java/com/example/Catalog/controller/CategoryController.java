@@ -27,12 +27,12 @@ public class CategoryController {
         modelMap.addAttribute( "categories",categories);
         return "categories";
     }
- /*
+
     @RequestMapping("/category/furniture")
     public String getAllFurnituries(ModelMap modelMap, @RequestParam Integer id){
     CategoryDto categoryDto = catService.getFurnituriesByCategory(id);
     modelMap.addAttribute("category", categoryDto);
     return "furnituries";
     }
- */
+
 }

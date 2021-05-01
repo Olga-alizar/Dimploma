@@ -45,12 +45,12 @@ public class CatServiceImpl implements CatService {
        Category category = convertFromDtoToEntity(categoryDto);
        categoryRepository.save(category);
     }
-/*
+
     @Override
     public CategoryDto getFurnituriesByCategory(Integer id) {
         return convertFromEntityToWithFurnituriesDto(categoryRepository.getCategoryWithFurnituriesById(id));
     }
-*/
+
      private List<CategoryDto> convertFromListEntityToListDto(List<Category> categories){
 
         List<CategoryDto> categoryDtos = new ArrayList<>();

@@ -18,7 +18,7 @@ public class Category {
 
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy="category")
-    List<Furniture> furnituries;
+    private List<Furniture> furnituries;
 
     public Integer getId() {
         return id;
