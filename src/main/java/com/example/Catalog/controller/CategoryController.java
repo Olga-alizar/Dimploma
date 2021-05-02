@@ -5,6 +5,7 @@ import com.example.Catalog.service.CatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,10 +30,22 @@ public class CategoryController {
     }
 
     @RequestMapping("/category/furniture")
-    public String getAllFurnituries(ModelMap modelMap, @RequestParam Integer id){
+    public String getAllFurriest(ModelMap modelMap, @RequestParam Integer id){
     CategoryDto categoryDto = catService.getFurnituriesByCategory(id);
     modelMap.addAttribute("category", categoryDto);
-    return "furnituries";
+    return "furriest";
     }
 
+    @RequestMapping("/category/edit")
+    public String editCategory(ModelMap modelMap, @RequestParam Integer id){
+        CategoryDto categoryDto = catService.getCategoryById(id);
+        modelMap.addAttribute ( "category", categoryDto) ;
+        return "editCategory";
+    }
+
+    @RequestMapping ("/edit-category")
+    public String saveCategory(@ModelAttribute("category") CategoryDto categoryDto){
+        catService.saveCategory(categoryDto) ;
+        return "redirect:/Category";
+    }
 }

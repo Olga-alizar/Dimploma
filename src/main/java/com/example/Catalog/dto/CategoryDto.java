@@ -40,12 +40,12 @@ public class CategoryDto {
         this.description = description;
     }
 
-    public List<FurnitureDto> getFurnitures() {
+    public List<FurnitureDto> getFurnituries() {
         return furnituries;
     }
 
-    public void setFurnituries(List<FurnitureDto> furnituries) {
-        this.furnituries = furnituries;
+    public void setFurnituries(List<FurnitureDto> furriest) {
+        this.furnituries = furriest;
     }
 
     @Override
@@ -54,7 +54,7 @@ public class CategoryDto {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
-                ", furnituries=" + furnituries +
+                ", furriest=" + furnituries +
                 '}';
     }
 }

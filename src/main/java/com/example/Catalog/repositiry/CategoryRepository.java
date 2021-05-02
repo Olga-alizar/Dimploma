@@ -13,7 +13,7 @@ public interface CategoryRepository extends JpaRepository<Category, Integer> {
     @Query("SELECT c FROM Category c")
     public List<Category> getAllCategory();
 
-    @Query("SELECT c FROM Category с LEFT JOIN FETCH c.furnituries where c.id = :id")
+    @Query("SELECT s FROM Category s LEFT JOIN FETCH s.furnituries where s.id = :id")
     public Category getCategoryWithFurnituriesById(@Param("id") Integer id);
 
     @Query("SELECT c FROM Category c Where c.name = :name")

@@ -48,8 +48,8 @@ public class Category {
         return furnituries;
     }
 
-    public void setFurnitures(List<Furniture> furnitures) {
-        this.furnituries = furnitures;
+    public void setFurnituries(List<Furniture> furnituries) {
+        this.furnituries = furnituries;
     }
 
     @Override

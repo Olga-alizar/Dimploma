@@ -13,5 +13,6 @@ public interface CatService {
     public CategoryDto getCategoryByName(String name);
     public void saveCategory(CategoryDto categoryDto);
     public CategoryDto getFurnituriesByCategory(Integer id);
+    public CategoryDto getCategoryById (Integer idCategory);
 
 }
