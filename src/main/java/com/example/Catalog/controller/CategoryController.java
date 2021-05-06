@@ -1,6 +1,8 @@
 package com.example.Catalog.controller;
 
 import com.example.Catalog.dto.CategoryDto;
+import com.example.Catalog.dto.FurnitureDto;
+import com.example.Catalog.entity.Furniture;
 import com.example.Catalog.service.CatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,11 +31,21 @@ public class CategoryController {
         return "categories";
     }
 
-    @RequestMapping("/category/furniture")
-    public String getAllFurriest(ModelMap modelMap, @RequestParam Integer id){
+    @RequestMapping(value = "/category/furniture", method = RequestMethod.GET)
+    public String getAllFurnituries(ModelMap modelMap, @RequestParam Integer id){
     CategoryDto categoryDto = catService.getFurnituriesByCategory(id);
     modelMap.addAttribute("category", categoryDto);
-    return "furriest";
+    return "furnituries";
+    }
+
+    @RequestMapping(value = "/furniture/edit")
+    public String editFurniture(ModelMap modelMap, @RequestParam Integer id){
+        System.out.println(id);
+        List<FurnitureDto> furniture = catService.getFurnituriesByCategory(id).getFurnituries();
+        modelMap.addAttribute("furniture", furniture);
+        //CategoryDto categoryDto = catService.getCategoryById(id);
+        //modelMap.addAttribute ( "category", categoryDto) ;
+        return "editFurniture";
     }
 
     @RequestMapping("/category/edit")
@@ -45,7 +57,21 @@ public class CategoryController {
 
     @RequestMapping ("/edit-category")
     public String saveCategory(@ModelAttribute("category") CategoryDto categoryDto){
-        catService.saveCategory(categoryDto) ;
-        return "redirect:/Category";
+        catService.saveCategory(categoryDto);
+        return "redirect:/category";
     }
+
+    @RequestMapping ("/edit-furniture")
+    public String saveFurniture(@ModelAttribute("cfurniture") FurnitureDto furnitureDto){
+     //   catService.saveFurniture(furnitureDto);
+        return "redirect:/category/furniture";
+    }
+
+    @RequestMapping("/category/add")
+    public String addCategory(ModelMap modelMap){
+        CategoryDto categoryDto = new CategoryDto();
+        modelMap.addAttribute ( "category", categoryDto);
+        return "addCategory";
+    }
+
 }

@@ -7,18 +7,23 @@
 </head>
 <body>
 <h1>Category List</h1>
-<a href="addCategory">Add category</a>
+<a href="category/add">Add category</a>
 <br/><br/>
 <div>
     <table border="1">
         <tr>
+            <th>Id</th>
             <th>Name</th>
             <th>Description</th>
+            <th>Action</th>
         </tr>
         <tr th:each ="category : ${categories}">
+            <td th:utext="${category.id}">...</td>
             <td th:utext="${category.name}">...</td>
             <td th:utext="${category.description}">...</td>
-            <td><a href="/category/furniture?id=${category.id}">Furniture</a></td>
+            <td><a th:href="@{/category/furniture?id={id} (id=${category.id})}">Furniture</a></td>
+            <td><a th:href="@{/category/edit?id={id} (id=${category.id})}">Edit</a></td>
+            <td><a th:href="@{/category/del?id={id} (id=${category.id})}">Delete</a></td>
         </tr>
     </table>
 </div>

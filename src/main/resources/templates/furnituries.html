@@ -2,23 +2,30 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
-    <title>Category List</title>
+    <title>Furniture List</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 </head>
 <body>
-<h1>Category List</h1>
-<a href="addCategory">Add category</a>
+<h1>Furniture List</h1>
+<a href="addFurniture">Add Furniture</a>
 <br/><br/>
 <div>
     <table border="1">
         <tr>
+            <th>Id</th>
             <th>Name</th>
+            <th>Price</th>
             <th>Description</th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
-        <tr th:each ="furniture : ${categories.furiest}">
+        <tr th:each ="furniture : ${category.getFurnituries()}">
+            <td th:utext="${furniture.id}">...</td>
             <td th:utext="${furniture.name}">...</td>
+            <td th:utext="${furniture.price}">...</td>
             <td th:utext="${furniture.description}">...</td>
-            <td><a href="/category/furniture?id=${category.id}">Furniture</a></td>
+            <td><a th:href="@{/furniture/edit?id={id} (id=${category.id})}" class="btn btn-primary"><i class="fas fa-user-edit ml-2"></i>Edit</a></td>
+            <td><a th:href="@{/furniture/delete?id={id} (id=${furniture.id})}" class="btn btn-primary"><i class="fas fa-user-times ml-2"></i>Delete</a></td>
         </tr>
     </table>
 </div>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Update Furniture</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+   <form action="#" th:action="@{/edit-furniture}" th:object="${furniture}" method="post">
+     Name       :
+     <input type="text" th:field="*{name}" />
+     <br/>
+     Price      :
+     <input type="text" th:field="*{price}" />
+     <br/>
+     Description:
+     <input type="text" th:field="*{description}" />
+     <br/>
+     <input type="submit" value="Update Furniture" />
+   </form>
+</body>
+</html>
