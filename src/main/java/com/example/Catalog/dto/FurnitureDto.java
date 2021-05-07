@@ -6,6 +6,7 @@ public class FurnitureDto {
     private String name;
     private Integer price;
     private String description;
+    private Integer manufacturer_id;
 
     public Integer getId() {
         return id;
@@ -37,6 +38,14 @@ public class FurnitureDto {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Integer getManufacturer_id() {
+        return manufacturer_id;
+    }
+
+    public void setManufacturer_id(Integer manufacturer_id) {
+        this.manufacturer_id = manufacturer_id;
     }
 
     @Override

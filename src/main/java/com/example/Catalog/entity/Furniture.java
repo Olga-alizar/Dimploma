@@ -16,14 +16,11 @@ public class Furniture {
 
     @Column
     private String description;
-/*
-    @Column
-    private Integer categories_id;
 
     @Column
     private Integer manufacturer_id;
-*/
-    @ManyToOne(fetch = FetchType.LAZY)
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name="category_id",  nullable=false)
     Category category;
 /*
@@ -62,14 +59,7 @@ public class Furniture {
     public void setDescription(String description) {
         this.description = description;
     }
-/*
-    public Integer getCategories_id() {
-        return categories_id;
-    }
 
-    public void setCategories_id(Integer categories_id) {
-        this.categories_id = categories_id;
-    }
 
     public Integer getManufacturer_id() {
         return manufacturer_id;
@@ -78,7 +68,7 @@ public class Furniture {
     public void setManufacturer_id(Integer manufacturer_id) {
         this.manufacturer_id = manufacturer_id;
     }
-*/
+
 
     @Override
     public String toString() {

@@ -10,12 +10,13 @@ public class CategoryDto {
 
     public CategoryDto() {
     }
-
+/*
     public CategoryDto(String name, String description) {
         this.name = name;
         this.description = description;
-    }
 
+    }
+*/
     public Integer getId() {
         return id;
     }

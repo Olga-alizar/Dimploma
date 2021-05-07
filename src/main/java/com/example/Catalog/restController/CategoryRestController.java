@@ -41,7 +41,7 @@ public class CategoryRestController {
     }
 
     @PostMapping("/api/category/add")
-    public void saveCategory(CategoryDto categoryDto){
+    public void saveCategory(@RequestBody CategoryDto categoryDto){
         catService.saveCategory(categoryDto);
     }
     @DeleteMapping("/api/category/del/{id}")

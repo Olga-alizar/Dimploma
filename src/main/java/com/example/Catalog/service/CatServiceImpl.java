@@ -52,7 +52,7 @@ public class CatServiceImpl implements CatService {
 
     @Override
     public void saveCategory(CategoryDto categoryDto) {
-       Category category = convertFromDtoToEntity(categoryDto);
+       Category category = convertFromDtoToEntityWithFurnituries(categoryDto);
        categoryRepository.save(category);
     }
 
@@ -122,6 +122,7 @@ public class CatServiceImpl implements CatService {
             furnitureDto.setName(furniture.getName());
             furnitureDto.setPrice(furniture.getPrice());
             furnitureDto.setDescription(furniture.getDescription());
+            furnitureDto.setManufacturer_id(furniture.getManufacturer_id());
             furnitureDtos.add(furnitureDto);
         }
         categoryDto.setFurnituries(furnitureDtos);
@@ -156,6 +157,7 @@ public class CatServiceImpl implements CatService {
                 furnitures.setName(furnitureDtos.getName());
                 furnitures.setPrice(furnitureDtos.getPrice());
                 furnitures.setDescription(furnitureDtos.getDescription());
+                furnitures.setManufacturer_id(furnitureDtos.getManufacturer_id());
                 furniture.add(furnitures);
             }
             category.setFurnituries(furniture);

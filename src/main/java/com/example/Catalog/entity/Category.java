@@ -17,7 +17,7 @@ public class Category {
     private String description;
 
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy="category")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy="category", cascade = CascadeType.PERSIST)
     private List<Furniture> furnituries;
 
     public Integer getId() {
